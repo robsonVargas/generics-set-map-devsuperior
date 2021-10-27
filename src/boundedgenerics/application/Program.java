@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
+import boundedgenerics.entities.Product;
 import boundedgenerics.services.CalculationService;
 
 
@@ -13,8 +15,10 @@ import boundedgenerics.services.CalculationService;
 public class Program {
 
 	public static void main(String[] args) {
-
-		List<Integer> list = new ArrayList<>();
+		
+		Locale.setDefault(Locale.US);
+		
+		List<Product> list = new ArrayList<>();
 
 		String path = "C:\\temp\\ws-aulasgithub\\GenericsSetMap\\in.txt";
 
@@ -22,12 +26,13 @@ public class Program {
 
 			String line = br.readLine();
 			while (line != null) {
-				list.add(Integer.parseInt(line));
+				String[] fields = line.split(",");
+				list.add(new Product(fields[0], Double.parseDouble(fields[1])));
 				line = br.readLine();
 			}
 			
-			Integer x = CalculationService.max(list);
-			System.out.println("Max:");
+			Product x = CalculationService.max(list);
+			System.out.println("Most expensive:");
 			System.out.println(x);
 
 		} catch (IOException e) {
