@@ -2,7 +2,7 @@ package generics.application;
 
 import java.util.Scanner;
 
-import generics.services.PrintServiceString;
+import generics.services.PrintService;
 
 public class Program {
 
@@ -10,7 +10,7 @@ public class Program {
 
 		Scanner sc = new Scanner(System.in);
 
-		PrintServiceString ps = new PrintServiceString();
+		PrintService<String> ps = new PrintService<>();
 		
 		System.out.print("How many values? ");
 		int n = sc.nextInt();
@@ -21,7 +21,8 @@ public class Program {
 		}
 
 		ps.print();
-		System.out.println("First: " + ps.first());
+		String x = ps.first();
+		System.out.println("First: " + x);
 		
 		sc.close();
 	}
