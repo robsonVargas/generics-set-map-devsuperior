@@ -5,7 +5,7 @@ import java.util.TreeSet;
 
 import set.compare.treeset.entities.Product;
 
-public class Program {
+public class Program implements Comparable<Integer> {
 
 	public static void main(String[] args) {
 		
@@ -19,5 +19,11 @@ public class Program {
 				System.out.println(p);
 			}
 		}
+
+	@Override
+	public int compareTo(Integer o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }
